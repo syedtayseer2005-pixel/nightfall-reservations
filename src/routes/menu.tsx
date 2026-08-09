@@ -28,14 +28,14 @@ function MenuPage() {
     <div className="pb-24 pt-32">
       <section className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal>
-          <p className="text-xs uppercase tracking-[0.32em] text-primary">The list</p>
+          <p className="text-xs uppercase tracking-[0.32em] text-primary">The anti-menu</p>
           <h1 className="mt-4 text-5xl font-extrabold uppercase leading-[0.9] sm:text-7xl md:text-8xl">
             Drink the
             <span className="block text-outline">contradiction</span>
           </h1>
           <p className="mt-6 max-w-xl text-muted-foreground">
-            Every pour starts as a question in the lab. Prices exclusive of taxes. Menu rotates as
-            the experiments do.
+            No hundred-item overload, no forced pairing of food and drink. A tight, rotating list
+            built like a lab experiment — every pour and plate earns its spot on purpose.
           </p>
         </Reveal>
       </section>
@@ -61,22 +61,17 @@ function MenuPage() {
                   as="li"
                   key={item.name}
                   delay={i * 60}
-                  className="group flex items-start justify-between gap-6 px-1 py-6 transition-colors hover:bg-card/60"
+                  className="group px-1 py-6 transition-colors hover:bg-card/60"
                 >
-                  <div>
-                    <h3 className="flex flex-wrap items-center gap-x-3 gap-y-1 text-lg font-bold uppercase tracking-tight transition-colors group-hover:text-primary">
-                      <span>{item.name}</span>
-                      {item.tag ? (
-                        <span className="inline-flex items-center border border-accent/50 px-2 py-0.5 font-body text-[10px] uppercase tracking-[0.2em] text-accent">
-                          {item.tag}
-                        </span>
-                      ) : null}
-                    </h3>
-                    <p className="mt-1.5 text-sm text-muted-foreground">{item.notes}</p>
-                  </div>
-                  <span className="shrink-0 font-display text-lg font-bold text-foreground">
-                    {item.price}
-                  </span>
+                  <h3 className="flex flex-wrap items-center gap-x-3 gap-y-1 text-lg font-bold uppercase tracking-tight transition-colors group-hover:text-primary">
+                    <span>{item.name}</span>
+                    {item.tag ? (
+                      <span className="inline-flex items-center border border-accent/50 px-2 py-0.5 font-body text-[10px] uppercase tracking-[0.2em] text-accent">
+                        {item.tag}
+                      </span>
+                    ) : null}
+                  </h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground">{item.notes}</p>
                 </Reveal>
               ))}
             </ul>
