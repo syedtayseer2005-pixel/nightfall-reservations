@@ -138,13 +138,11 @@ function ReservationPage() {
             </button>
           </Reveal>
         ) : (
-          <Reveal
-            as="form"
-            variant="scale"
-            className="space-y-6 border border-border/70 bg-card/40 p-6 backdrop-blur-sm sm:p-10"
-            // @ts-expect-error form props pass through the polymorphic wrapper
-            onSubmit={onSubmit}
-          >
+          <Reveal variant="scale">
+            <form
+              onSubmit={onSubmit}
+              className="space-y-6 border border-border/70 bg-card/40 p-6 backdrop-blur-sm sm:p-10"
+            >
             <div className="grid gap-6 sm:grid-cols-2">
               <div>
                 <label className={labelClass} htmlFor="guest_name">
@@ -311,9 +309,10 @@ function ReservationPage() {
               {submitting ? "Sending" : "Request reservation"}
             </button>
 
-            <p className="text-center text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-              Closed Tuesdays · Groups over 8, call us
-            </p>
+              <p className="text-center text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                Closed Tuesdays · Groups over 8, call us
+              </p>
+            </form>
           </Reveal>
         )}
       </section>
