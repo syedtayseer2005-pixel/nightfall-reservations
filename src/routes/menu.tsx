@@ -64,10 +64,10 @@ function MenuPage() {
                   className="group flex items-start justify-between gap-6 px-1 py-6 transition-colors hover:bg-card/60"
                 >
                   <div>
-                    <h3 className="text-lg font-bold uppercase tracking-tight transition-colors group-hover:text-primary">
-                      {item.name}
+                    <h3 className="flex flex-wrap items-center gap-x-3 gap-y-1 text-lg font-bold uppercase tracking-tight transition-colors group-hover:text-primary">
+                      <span>{item.name}</span>
                       {item.tag ? (
-                        <span className="ml-3 border border-accent/50 px-2 py-0.5 align-middle font-body text-[10px] uppercase tracking-[0.2em] text-accent">
+                        <span className="inline-flex items-center border border-accent/50 px-2 py-0.5 font-body text-[10px] uppercase tracking-[0.2em] text-accent">
                           {item.tag}
                         </span>
                       ) : null}
