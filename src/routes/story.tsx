@@ -44,8 +44,6 @@ const principles = [
   },
 ];
 
-export default function noop() {}
-
 function StoryPage() {
   return (
     <div className="pb-24 pt-32">
