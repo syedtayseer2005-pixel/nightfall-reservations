@@ -9,7 +9,7 @@ export function Marquee({
   reverse?: boolean;
   className?: string;
 }) {
-  const items = Array.from({ length: 8 }, (_, i) => i);
+  const items = Array.from({ length: 16 }, (_, i) => i);
   return (
     <div
       className={cn(
@@ -23,7 +23,7 @@ export function Marquee({
           reverse ? "animate-marquee-rev" : "animate-marquee",
         )}
       >
-        {items.concat(items).map((i) => (
+        {items.map((i) => (
           <span
             key={i}
             className="font-display text-xl font-extrabold uppercase tracking-tight sm:text-3xl"
