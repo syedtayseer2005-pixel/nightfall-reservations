@@ -54,6 +54,16 @@ function todayISO() {
   return new Date().toISOString().slice(0, 10);
 }
 
+function formatDate(iso: string) {
+  if (!iso) return "";
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(y!, (m ?? 1) - 1, d).toLocaleDateString("en-IN", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  });
+}
+
 function ReservationPage() {
   const [form, setForm] = useState<ReservationInput>(emptyForm);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -123,8 +133,8 @@ function ReservationPage() {
             <h2 className="mt-6 text-3xl font-extrabold uppercase">Request received</h2>
             <p className="mx-auto mt-4 max-w-md text-sm text-muted-foreground">
               Thanks, {form.guest_name.split(" ")[0]}. We&apos;ve got you down for{" "}
-              {form.party_size} on {form.reservation_date} at {form.reservation_time}. We&apos;ll
-              confirm on {form.phone} shortly.
+              {form.party_size} on {formatDate(form.reservation_date)} at{" "}
+              {form.reservation_time}. We&apos;ll confirm on {form.phone} shortly.
             </p>
             <button
               type="button"
