@@ -45,11 +45,11 @@ function MenuPage() {
       <section className="mx-auto max-w-7xl space-y-24 px-5 pt-20 sm:px-8">
         {menuSections.map((section, sectionIndex) => (
           <div key={section.id} className="grid gap-10 md:grid-cols-[280px_1fr]">
-            <Reveal variant="left" className="md:sticky md:top-28 md:self-start">
+            <Reveal variant="left" className="min-w-0 md:sticky md:top-28 md:self-start">
               <p className="font-display text-xs uppercase tracking-[0.3em] text-primary">
                 0{sectionIndex + 1}
               </p>
-              <h2 className="mt-3 text-3xl font-extrabold uppercase leading-none sm:text-4xl">
+              <h2 className="mt-3 break-words text-3xl font-extrabold uppercase leading-none sm:text-4xl">
                 {section.title}
               </h2>
               <p className="mt-4 text-sm text-muted-foreground">{section.blurb}</p>
