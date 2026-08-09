@@ -1,14 +1,16 @@
-# Welcome to your Lovable project
+# Nightfall Reservations
+
+https://oxymorons.co.in/                                               make me a similar wwebsite for this businesss same symbol logo and stuff and make everything from menu to everything and stuff but make a reservation system for this business inbuilt inside of the website make the animations slideins and stuff and all the animation coming in the oxy and stuff the bacckground movement make the theme of the website like dark and cclub type and make a website much much better than this website
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/a08a6c55-927f-4b5f-bbce-7b0718cf6811).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +22,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
