@@ -26,36 +26,42 @@ export function SiteHeader() {
   // Lock the page in place while the mobile menu is open so a stray touch
   // can't scroll the background and shift the fixed header out of view.
   useEffect(() => {
-    if (open) {
-      const scrollY = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = "0";
-      document.body.style.right = "0";
-      return () => {
-        document.body.style.position = "";
-        document.body.style.top = "";
-        document.body.style.left = "";
-        document.body.style.right = "";
-        window.scrollTo(0, scrollY);
-      };
-    }
-    return undefined;
+    if (!open) return undefined;
+    const scrollY = window.scrollY;
+    const body = document.body;
+    const prev = {
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+    };
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+    return () => {
+      body.style.position = prev.position;
+      body.style.top = prev.top;
+      body.style.left = prev.left;
+      body.style.right = prev.right;
+      body.style.width = prev.width;
+      window.scrollTo(0, scrollY);
+    };
   }, [open]);
-
-  const closeAndGo = () => setOpen(false);
 
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-[100] transition-all duration-500",
         scrolled || open
-          ? "border-b border-border/70 bg-ink/95 backdrop-blur-xl"
+          ? "border-b border-border/70 bg-ink/85 backdrop-blur-xl"
           : "border-b border-transparent",
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-        <LogoLink onClick={closeAndGo} />
+        <LogoLink />
 
         <nav className="hidden items-center gap-9 text-xs font-medium uppercase tracking-[0.22em] md:flex">
           {links.map((link) => (
@@ -82,21 +88,26 @@ export function SiteHeader() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="relative z-[110] -m-2 p-2 text-foreground md:hidden"
+          className="text-foreground md:hidden"
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
-      {open ? (
-        <div className="fixed inset-x-0 top-[64px] bottom-0 z-[90] overflow-y-auto border-t border-border/60 bg-ink/98 backdrop-blur-xl md:hidden">
-          <nav className="flex flex-col gap-1 px-5 py-6 text-base uppercase tracking-[0.22em]">
+      <div
+        className={cn(
+          "grid overflow-hidden border-t border-border/60 bg-ink/95 backdrop-blur-xl transition-all duration-500 md:hidden",
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr] border-transparent",
+        )}
+      >
+        <div className="min-h-0">
+          <nav className="flex flex-col gap-1 px-5 py-4 text-sm uppercase tracking-[0.22em]">
             {links.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                onClick={closeAndGo}
-                className="border-b border-border/40 py-4 text-muted-foreground"
+                onClick={() => setOpen(false)}
+                className="py-3 text-muted-foreground"
                 activeProps={{ className: "text-foreground" }}
                 activeOptions={{ exact: link.to === "/" }}
               >
@@ -105,14 +116,14 @@ export function SiteHeader() {
             ))}
             <Link
               to="/reservation"
-              onClick={closeAndGo}
-              className="mt-6 border border-primary bg-primary px-5 py-4 text-center text-primary-foreground"
+              onClick={() => setOpen(false)}
+              className="mt-2 border border-primary px-5 py-3 text-center text-primary"
             >
               Reserve
             </Link>
           </nav>
         </div>
-      ) : null}
+      </div>
     </header>
   );
 }
