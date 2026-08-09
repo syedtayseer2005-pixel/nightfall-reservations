@@ -51,10 +51,10 @@ function Index() {
           alt="The red-lit bar of Oxymorons at night"
           width={1600}
           height={1104}
-          className="absolute inset-0 h-full w-full object-cover opacity-60"
+          className="absolute inset-0 h-full w-full object-cover opacity-90"
           style={{ transform: `translateY(${offset * 0.18}px) scale(1.1)` }}
         />
-        <div className="absolute inset-0 bg-linear-to-t from-background via-background/60 to-background/80" />
+        <div className="absolute inset-0 bg-linear-to-t from-background via-background/35 to-background/70" />
 
         <div className="relative mx-auto w-full max-w-7xl px-5 pb-24 pt-40 sm:px-8">
           <Reveal>
