@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { Marquee } from "@/components/Marquee";
 import { Reveal } from "@/components/Reveal";
-import bookshelf from "@/assets/bookshelf-door.jpg";
 import cocktailLab from "@/assets/cocktail-lab.jpg";
-import crowd from "@/assets/crowd.jpg";
+import barPortrait from "@/assets/bar-portrait.jpg";
+import venueInterior from "@/assets/venue-interior.jpg";
 
 export const Route = createFileRoute("/story")({
   head: () => ({
@@ -79,10 +79,10 @@ function StoryPage() {
 
           <Reveal variant="right" className="relative">
             <img
-              src={cocktailLab}
-              alt="A smoking craft cocktail on a dark lab bench surrounded by beakers"
-              width={1200}
-              height={1504}
+              src={barPortrait}
+              alt="A bartender at Oxymorons holding up a signature pink cocktail"
+              width={1062}
+              height={1043}
               loading="lazy"
               className="h-full w-full object-cover"
             />
@@ -114,20 +114,20 @@ function StoryPage() {
       <section className="mx-auto grid max-w-7xl gap-6 px-5 pt-24 sm:px-8 md:grid-cols-2">
         <Reveal variant="left">
           <img
-            src={bookshelf}
-            alt="Hidden bar entrance behind a bookshelf door with red light spilling out"
-            width={1200}
-            height={912}
+            src={venueInterior}
+            alt="Red-lit booth seating and the bar inside Oxymorons"
+            width={1063}
+            height={1057}
             loading="lazy"
             className="h-80 w-full object-cover"
           />
         </Reveal>
         <Reveal variant="right" delay={120}>
           <img
-            src={crowd}
-            alt="Guests laughing together inside the red-lit cocktail bar"
+            src={cocktailLab}
+            alt="A smoking craft cocktail on a dark lab bench surrounded by beakers"
             width={1200}
-            height={912}
+            height={1504}
             loading="lazy"
             className="h-80 w-full object-cover"
           />
