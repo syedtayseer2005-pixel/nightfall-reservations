@@ -32,11 +32,18 @@ export function Wordmark({ className }: { className?: string }) {
   );
 }
 
-export function LogoLink({ className }: { className?: string }) {
+export function LogoLink({
+  className,
+  onClick,
+}: {
+  className?: string;
+  onClick?: () => void;
+}) {
   return (
     <Link
       to="/"
       aria-label="Oxymorons home"
+      onClick={onClick}
       className={cn("group inline-flex items-center gap-3", className)}
     >
       <OxMark className="h-7 w-7 text-primary transition-transform duration-500 group-hover:rotate-180" />
