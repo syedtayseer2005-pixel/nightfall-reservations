@@ -158,7 +158,6 @@ function Index() {
                   {item.name}
                 </h3>
                 <p className="mt-3 text-sm text-muted-foreground">{item.notes}</p>
-                <p className="mt-6 font-display text-lg font-bold">{item.price}</p>
               </Reveal>
             ))}
           </div>
